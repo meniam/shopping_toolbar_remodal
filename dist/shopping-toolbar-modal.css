@@ -8,12 +8,12 @@
  */
 
 /* ==========================================================================
-   Remodal's necessary styles
+   shopping-toolbar's necessary styles
    ========================================================================== */
 
 /* Hide scroll bar */
 
-html.remodal-is-locked {
+html.shopping-toolbar-is-locked {
   overflow: hidden;
 
   -ms-touch-action: none;
@@ -22,14 +22,14 @@ html.remodal-is-locked {
 
 /* Anti FOUC */
 
-.remodal,
-[data-remodal-id] {
+.shopping-toolbar,
+[data-shopping-toolbar-id] {
   display: none;
 }
 
 /* Necessary styles of the overlay */
 
-.remodal-overlay {
+.shopping-toolbar-overlay {
   position: fixed;
   z-index: 9999;
   top: -5000px;
@@ -42,7 +42,7 @@ html.remodal-is-locked {
 
 /* Necessary styles of the wrapper */
 
-.remodal-wrapper {
+.shopping-toolbar-wrapper {
   position: fixed;
   z-index: 10000;
   top: 0;
@@ -58,7 +58,7 @@ html.remodal-is-locked {
   -webkit-overflow-scrolling: touch;
 }
 
-.remodal-wrapper:after {
+.shopping-toolbar-wrapper:after {
   display: inline-block;
 
   height: 100%;
@@ -69,26 +69,27 @@ html.remodal-is-locked {
 
 /* Fix iPad, iPhone glitches */
 
-.remodal-overlay,
-.remodal-wrapper {
+.shopping-toolbar-overlay,
+.shopping-toolbar-wrapper {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
 /* Necessary styles of the modal dialog */
 
-.remodal {
+.shopping-toolbar {
   position: relative;
+
+  text-align: left;
 
   outline: none;
 
   -webkit-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
 
-.remodal-is-initialized {
+.shopping-toolbar-is-initialized {
   /* Disable Anti-FOUC */
   display: inline-block;
 }

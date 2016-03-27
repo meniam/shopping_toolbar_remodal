@@ -27,7 +27,7 @@
    * @const
    * @type {String}
    */
-  var PLUGIN_NAME = 'remodal';
+  var PLUGIN_NAME = 'shopping-toolbar';
 
   /**
    * Namespace for CSS and events

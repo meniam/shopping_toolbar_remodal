@@ -42,9 +42,9 @@ module.exports = function(grunt) {
     concat: {
       dist: {
         files: {
-          'dist/remodal.js': 'src/remodal.js',
-          'dist/remodal.css': 'src/remodal.css',
-          'dist/remodal-default-theme.css': 'src/remodal-default-theme.css'
+          'dist/shopping-toolbar-modal.js': 'src/remodal.js',
+          'dist/shopping-toolbar-modal.css': 'src/remodal.css',
+          'dist/shopping-toolbar-modal-default-theme.css': 'src/remodal-default-theme.css'
         },
         options: {
           banner: '<%= meta.banner %>'
@@ -65,8 +65,8 @@ module.exports = function(grunt) {
         files: {
           'src/remodal.css': 'src/remodal.css',
           'src/remodal-default-theme.css': 'src/remodal-default-theme.css',
-          'dist/remodal.css': 'dist/remodal.css',
-          'dist/remodal-default-theme.css': 'dist/remodal-default-theme.css'
+          'dist/shopping-toolbar-modal.css': 'dist/shopping-toolbar-modal.css',
+          'dist/shopping-toolbar-modal-default-theme.css': 'dist/shopping-toolbar-modal-default-theme.css'
         }
       }
     },
@@ -123,10 +123,23 @@ module.exports = function(grunt) {
       }
     },
 
+    cssmin: {
+      options: {
+        shorthandCompacting: false,
+        roundingPrecision: -1
+      },
+      target: {
+        files: {
+          'dist/shopping-toolbar-modal.min.css': ['dist/shopping-toolbar-modal.css', 'dist/shopping-toolbar-modal-default-theme.css']
+        }
+      }
+    },
+
+
     uglify: {
       remodal: {
         files: {
-          'dist/remodal.min.js': 'src/remodal.js'
+          'dist/shopping-toolbar-modal.min.js': 'src/remodal.js'
         }
       },
       options: {
@@ -156,11 +169,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-csscomb');
   grunt.loadNpmTasks('grunt-githooks');
   grunt.loadNpmTasks('grunt-jscs');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
 
   // Tasks
   grunt.registerTask('lint', ['jshint', 'jscs']);
   grunt.registerTask('test', ['connect', 'lint', 'qunit']);
-  grunt.registerTask('build', ['concat', 'autoprefixer', 'csscomb', 'uglify', 'githooks']);
+  grunt.registerTask('build', ['concat', 'autoprefixer', 'csscomb', 'cssmin', 'uglify', 'githooks']);
   grunt.registerTask('bsync', ['browserSync', 'watch']);
-  grunt.registerTask('default', ['test', 'build']);
+  grunt.registerTask('default', ['build']);
 };
